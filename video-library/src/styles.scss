@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+a:not([href]) {
+  color: #0056b3 !important;
+}
+
+.nav-item {
+  cursor: pointer;
+}
