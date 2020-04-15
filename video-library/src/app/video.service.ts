@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { map } from 'rxjs/operators';
 import { Video } from './video';
 import { Observable } from 'rxjs';
 
