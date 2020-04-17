@@ -42,7 +42,6 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
       .getEmployees()
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((res) => {
-        console.log('employees', res);
         this.employees = res;
         this.cd.markForCheck();
       });
@@ -50,5 +49,17 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
 
   addEmployee(): void {
     this.router.navigate(['/employee']);
+  }
+
+  editEmployee(employee: Employee): void {
+    this.router.navigate(['/employee/' + employee._id]);
+  }
+
+  deleteEmployee(employee: Employee): void {
+    this.employeeService.removeEmployee(employee).subscribe((res) => {
+      const index = this.employees.indexOf(employee);
+      this.employees.splice(index, 1);
+      this.cd.markForCheck();
+    });
   }
 }

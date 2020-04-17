@@ -2,4 +2,9 @@
   &__list {
     margin-top: 24px;
   }
+
+  &__edit,
+  &__delete {
+    cursor: pointer;
+  }
 }

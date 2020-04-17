@@ -24,4 +24,59 @@ router.post('/employee', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/employees/:id', (req, res) => {
+  console.log('Get request for single employee');
+
+  Employee.findById(req.params.id).exec(function (err, employee) {
+    if (err) {
+      res.send('Error retrieving video');
+    } else {
+      res.json(employee);
+    }
+  });
+});
+
+router.put('/employee/:id', (req, res) => {
+  console.log('Update employee');
+
+  const { name, position, office, salary } = req.body;
+  let updateEmployee = {};
+
+  updateEmployee.name = name;
+  updateEmployee.position = position;
+  updateEmployee.office = office;
+  updateEmployee.salary = salary;
+
+  console.log(req.params.id, 'requested id');
+
+  Employee.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: updateEmployee,
+    },
+    {
+      new: true,
+    },
+    function (err, updatedEmployee) {
+      if (err) {
+        res.send('Error updating employee');
+      } else {
+        res.json(updatedEmployee);
+      }
+    }
+  );
+});
+
+router.delete('/employee/:id', (req, res) => {
+  console.log('deleting employee');
+
+  Employee.findByIdAndDelete(req.params.id, function (err, deletedEmployee) {
+    if (err) {
+      res.send('Error deleting employee');
+    } else {
+      res.json(deletedEmployee);
+    }
+  });
+});
+
 module.exports = router;

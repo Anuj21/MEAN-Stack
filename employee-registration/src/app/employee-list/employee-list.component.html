@@ -13,6 +13,8 @@
           <th>Position</th>
           <th>Office</th>
           <th>Salary</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +23,20 @@
           <td>{{ employee.position }}</td>
           <td>{{ employee.office }}</td>
           <td>{{ employee.salary }}</td>
+          <td>
+            <i
+              class="fa fa-pencil employee-list__edit"
+              (click)="editEmployee(employee)"
+              aria-hidden="true"
+            ></i>
+          </td>
+          <td>
+            <i
+              class="fa fa-trash employee-list__delete"
+              (click)="deleteEmployee(employee)"
+              aria-hidden="true"
+            ></i>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FormValidationService } from '../services/form-validation/form-validation.service';
 
 @NgModule({
   declarations: [AppComponent, EmployeeComponent, EmployeeListComponent],
@@ -18,8 +20,9 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFontAwesomeModule,
   ],
-  providers: [],
+  providers: [FormValidationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
