@@ -1,0 +1,10 @@
+.employee-list {
+  &__list {
+    margin-top: 24px;
+  }
+
+  &__edit,
+  &__delete {
+    cursor: pointer;
+  }
+}
